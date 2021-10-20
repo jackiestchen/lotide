@@ -13,9 +13,15 @@ const assertEqual = function(actual, expected) {
 };
 
 const tail = function(arr) {
-  return arr.splice(1);
+  // let result = arr.slice(1)
+  return arr.slice(1);
 };
 
 const result = tail(["Hello", "Lighthouse", "Labs"]);
 assertEqual(result[0], "Lighthouse");
 assertEqual(result[1], "Labs");
+
+const words = ["Yo Yo", "Lighthouse", "Labs"];
+tail(words);
+console.log(words);
+assertEqual(words.length, 3);
