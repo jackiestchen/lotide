@@ -14,10 +14,12 @@ const letterPositions = function(sentence) {
   return results;
 }
 
-const words = "lighthouse in the house";
-const hello = "hello";
-console.log(letterPositions(words));
-console.log(letterPositions(hello))
+module.exports = letterPositions;
+
+// const words = "lighthouse in the house";
+// const hello = "hello";
+// console.log(letterPositions(words));
+// console.log(letterPositions(hello))
 
 
 // console.log(words.match(/h/g).index);
