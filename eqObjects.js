@@ -32,17 +32,28 @@ const eqObjects = function(object1, object2) {
   if (Object.keys(object1).length !== Object.keys(object2).length) {
     return false;
   }
-  let result = false;
+  // let result = false;
+  // for (const element in object1) {
+  //   if (!object1[element.toString()]) {
+  //     return false;
+  //   } else if (Array.isArray(object1[element.toString()]) ) {
+  //     if (!eqArrays(object1[element.toString()], object2[element.toString()])) {
+  //       return false;
+  //     }      
+  //   }
+  // }
+  // return true;
+  if (object1 === object2) return true;
+
+  if (object1 === null || typeof object1 !== "object" ||
+      object2 === null || typeof object2 !== "object") return false;
   for (const element in object1) {
-    if (!object1[element.toString()]) {
-      return false;
-    } else if (Array.isArray(object1[element.toString()]) ) {
-      if (!eqArrays(object1[element.toString()], object2[element.toString()])) {
-        return false;
-      }      
-    }
+    if (!object1[element] || !eqObjects(object1[element], object2[element])) return false;
   }
+
   return true;
+
+
 };
 
 module.exports = eqObjects;
@@ -65,3 +76,7 @@ module.exports = eqObjects;
 // const cd2 = {c: "1", d: ["2", 3, 4]};
 
 // console.log(eqObjects(cd, cd2));
+
+// console.log(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => true
+// console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }));// => false
+// console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }) );// => false
