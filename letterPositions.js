@@ -1,7 +1,5 @@
-// const lib = require('./assertArrayEquals.js');
 const letterPositions = function(sentence) {
   const results = {};
-  // sentence = sentence.split(" ").join("");
   for (let i = 0; i < sentence.length; i++) {
     if (!results[sentence[i].toString()] && sentence[i] !== " ") {
       results[sentence[i].toString()] = [];
@@ -12,14 +10,7 @@ const letterPositions = function(sentence) {
   }
 
   return results;
-}
+};
 
 module.exports = letterPositions;
 
-// const words = "lighthouse in the house";
-// const hello = "hello";
-// console.log(letterPositions(words));
-// console.log(letterPositions(hello))
-
-
-// console.log(words.match(/h/g).index);
