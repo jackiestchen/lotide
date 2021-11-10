@@ -10,7 +10,7 @@ const eqObjects = function(object1, object2) {
   if (object1 === null || typeof object1 !== "object" ||
       object2 === null || typeof object2 !== "object") return false;
   for (const element in object1) {
-    if (!object1[element] || !eqObjects(object1[element], object2[element])) return false;
+    if (object2[element] === null  || !eqObjects(object1[element], object2[element])) return false;
   }
 
   return true;
