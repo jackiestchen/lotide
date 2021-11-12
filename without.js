@@ -1,5 +1,3 @@
-const assertEqual = require("./assertEqual");
-
 const without = (source, itemsToRemove) => {
   let hashRemoveItems = {};
   let output = [];
@@ -10,7 +8,7 @@ const without = (source, itemsToRemove) => {
   for (let i = 0; i < source.length; i++) {
     if (!hashRemoveItems[source[i].toString()]) {
       output.push(source[i]);
-    } else if (!assertEqual(hashRemoveItems[source[i].toString()], source[i])) {
+    } else if (hashRemoveItems[source[i].toString()] !== source[i]) {
       output.push(source[i]);
     }
   }
@@ -21,3 +19,16 @@ const without = (source, itemsToRemove) => {
 
 module.exports = without;
 
+const a = ["1", "1", "1", "2", "3", "1" , "1"];
+const b = ["1", 2, "3"];
+
+const c = ["1", "2", "3"];
+const d = [1, 2, "3"];
+
+const e = [1, 2, 3];
+const f = [1];
+
+
+console.log(without(a,b));
+console.log(without(c,d));
+console.log(without(e,f));
