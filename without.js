@@ -19,16 +19,3 @@ const without = (source, itemsToRemove) => {
 
 module.exports = without;
 
-const a = ["1", "1", "1", "2", "3", "1" , "1"];
-const b = ["1", 2, "3"];
-
-const c = ["1", "2", "3"];
-const d = [1, 2, "3"];
-
-const e = [1, 2, 3];
-const f = [1];
-
-
-console.log(without(a,b));
-console.log(without(c,d));
-console.log(without(e,f));
